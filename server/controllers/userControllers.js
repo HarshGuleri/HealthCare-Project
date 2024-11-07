@@ -20,7 +20,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // Hash the password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(password, salt); // This is used for Encrypted password in db
 
     // Create a new user
     const newUser = await User.create({
@@ -31,7 +31,8 @@ const registerUser = asyncHandler(async (req, res) => {
         bloodGroup,
         email,
         phoneNumber,
-        password: hashedPassword,
+        password: hashedPassword, 
+        // password
     });
 
     res.status(201).json({ message: "User registered successfully", user: newUser });
