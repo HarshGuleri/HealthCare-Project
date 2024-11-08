@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+// import {jwtAuthMiddleware} from "../middleware/jwtAuthMiddleware";
+
 const {
     registerUser,
     loginUser
